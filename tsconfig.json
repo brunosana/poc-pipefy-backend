@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@presentation/*": [
+        "src/presentation/*"
+      ],
+      "@di/*": [
+        "src/di/*"
+      ],
+      "@core/*": [
+        "src/core/*"
+      ],
+      "@clients/*": [
+        "src/clients/*"
+      ],
+      "@infra/*": [
+        "src/infra/*"
+      ],
+    }
+  }
+}

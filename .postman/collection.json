@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "1efab3e6-d53e-4ffd-bbbd-7cd3810f0238",
+		"name": "@POC_PIPEFY",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21977914"
+	},
+	"item": [
+		{
+			"name": "CORE",
+			"item": [
+				{
+					"name": "TESTS",
+					"item": [
+						{
+							"name": "GET CARD",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{core-url}}/v1/pipefy/tests/666109958",
+									"host": [
+										"{{core-url}}"
+									],
+									"path": [
+										"v1",
+										"pipefy",
+										"tests",
+										"666109958"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET ALL CARDS",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{core-url}}/v1/pipefy/tests/allcards",
+									"host": [
+										"{{core-url}}"
+									],
+									"path": [
+										"v1",
+										"pipefy",
+										"tests",
+										"allcards"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "MOVE CARD",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{core-url}}/v1/pipefy/tests/move/:cardId/from/:phaseId",
+									"host": [
+										"{{core-url}}"
+									],
+									"path": [
+										"v1",
+										"pipefy",
+										"tests",
+										"move",
+										":cardId",
+										"from",
+										":phaseId"
+									],
+									"variable": [
+										{
+											"key": "cardId",
+											"value": "666109958"
+										},
+										{
+											"key": "phaseId",
+											"value": "319203041"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE FIELDS",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"codigoCredor\": \"123\",\n    \"nomeCredor\": \"Bruno Santana\",\n    \"numeroContratos\": 16,\n    \"tipoContrato\": \"Material\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{core-url}}/v1/pipefy/tests/updatefields/:id",
+									"host": [
+										"{{core-url}}"
+									],
+									"path": [
+										"v1",
+										"pipefy",
+										"tests",
+										"updatefields",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "666109958"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "WEBHOOKS",
+					"item": [
+						{
+							"name": "NEW CARD",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"action\": \"card.create\",\n        \"card\": { \"id\": 666109958, \"pipe_id\": 303118334 }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{core-url}}/v1/pipefy/webhooks/newcard",
+									"host": [
+										"{{core-url}}"
+									],
+									"path": [
+										"v1",
+										"pipefy",
+										"webhooks",
+										"newcard"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE CARD PHASE",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"to\": {\n            \"id\": 319239393\n        },\n        \"card\": { \"id\": 666109958, \"pipe_id\": 303118334 }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{core-url}}/v1/pipefy/webhooks/updatecardphase",
+									"host": [
+										"{{core-url}}"
+									],
+									"path": [
+										"v1",
+										"pipefy",
+										"webhooks",
+										"updatecardphase"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "LIST WEBHOOKS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{core-url}}/v1/pipefy/allwebhooks",
+							"host": [
+								"{{core-url}}"
+							],
+							"path": [
+								"v1",
+								"pipefy",
+								"allwebhooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE WEBHOOK",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{core-url}}/v1/pipefy/deletewebhook/:id",
+							"host": [
+								"{{core-url}}"
+							],
+							"path": [
+								"v1",
+								"pipefy",
+								"deletewebhook",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "300239857"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE WEBHOOK",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"actions\": [\"card.create\"],\n  \"name\": \"Opa Teste\",\n  \"url\": \"http://www.google.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{core-url}}/v1/pipefy/createwebhook",
+							"host": [
+								"{{core-url}}"
+							],
+							"path": [
+								"v1",
+								"pipefy",
+								"createwebhook"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "core-url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
